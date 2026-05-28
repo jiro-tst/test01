@@ -1,1 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>筋トレ・食事ログ</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <h1>筋トレ・食事ログ</h1>
+    <p>日々の食事・トレーニング・体重を記録するアプリです。</p>
 
+    <section class="card">
+      <h2>今日のログ</h2>
+
+      <label>日付</label>
+      <input type="date" id="date" />
+
+      <label>体重</label>
+      <input type="number" id="weight" placeholder="例：78.1" />
+
+      <label>食事メモ</label>
+      <textarea id="meal" placeholder="例：白米150g、卵、鶏胸肉"></textarea>
+
+      <label>トレーニング内容</label>
+      <textarea id="workout" placeholder="例：サイドレイズ 10回×3セット"></textarea>
+
+      <label>タンパク質(g)</label>
+      <input type="number" id="protein" placeholder="例：120" />
+
+      <button id="saveBtn">保存する</button>
+    </section>
+
+    <section class="card">
+      <h2>記録一覧</h2>
+      <div id="logList"></div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
