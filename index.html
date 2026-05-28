@@ -8,33 +8,123 @@
 </head>
 <body>
   <main class="app">
-    <h1>筋トレ・食事ログ</h1>
-    <p>日々の食事・トレーニング・体重を記録するアプリです。</p>
+    <section class="hero">
+      <div class="hero-text">
+        <p class="eyebrow">PERSONAL FITNESS DASHBOARD</p>
+        <h1>筋トレ・食事ログ</h1>
+        <p class="hero-description">
+          日々の食事・体重・トレーニングを、シンプルかつ見やすく記録。
+          「痩せながら筋肉を増やす」ための自分用ログアプリ。
+        </p>
+      </div>
+    </section>
 
-    <section class="card">
-      <h2>今日のログ</h2>
-
-      <label>日付</label>
-      <input type="date" id="date" />
-
-      <label>体重</label>
-      <input type="number" id="weight" placeholder="例：78.1" />
-
-      <label>食事メモ</label>
-      <textarea id="meal" placeholder="例：白米150g、卵、鶏胸肉"></textarea>
-
-      <label>トレーニング内容</label>
-      <textarea id="workout" placeholder="例：サイドレイズ 10回×3セット"></textarea>
-
-      <label>タンパク質(g)</label>
-      <input type="number" id="protein" placeholder="例：120" />
-
-      <button id="saveBtn">保存する</button>
+    <section class="summary-grid">
+      <div class="summary-card">
+        <p class="summary-label">最新体重</p>
+        <p class="summary-value" id="latestWeight">-</p>
+      </div>
+      <div class="summary-card">
+        <p class="summary-label">平均タンパク質</p>
+        <p class="summary-value" id="averageProtein">-</p>
+      </div>
+      <div class="summary-card">
+        <p class="summary-label">筋トレ日数</p>
+        <p class="summary-value" id="workoutDays">-</p>
+      </div>
+      <div class="summary-card">
+        <p class="summary-label">有酸素 合計</p>
+        <p class="summary-value" id="totalCardio">-</p>
+      </div>
     </section>
 
     <section class="card">
-      <h2>記録一覧</h2>
-      <div id="logList"></div>
+      <div class="section-head">
+        <h2>今日のログを追加</h2>
+        <p>食事・PFC・トレーニング内容を記録します。</p>
+      </div>
+
+      <form id="logForm" class="log-form">
+        <div class="form-grid two-column">
+          <div>
+            <label for="date">日付</label>
+            <input type="date" id="date" required />
+          </div>
+
+          <div>
+            <label for="weight">体重 (kg)</label>
+            <input type="number" id="weight" step="0.1" placeholder="例：78.1" />
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <div>
+            <label for="breakfast">朝食</label>
+            <textarea id="breakfast" placeholder="例：プロテイン、卵かけご飯"></textarea>
+          </div>
+
+          <div>
+            <label for="lunch">昼食</label>
+            <textarea id="lunch" placeholder="例：白米、鶏胸肉、ブロッコリー"></textarea>
+          </div>
+
+          <div>
+            <label for="dinner">夕食</label>
+            <textarea id="dinner" placeholder="例：刺身、味噌汁、白米"></textarea>
+          </div>
+
+          <div>
+            <label for="snack">間食</label>
+            <textarea id="snack" placeholder="例：プロテイン、ヨーグルト"></textarea>
+          </div>
+        </div>
+
+        <div class="form-grid three-column">
+          <div>
+            <label for="protein">タンパク質 (g)</label>
+            <input type="number" id="protein" step="0.1" placeholder="例：130" />
+          </div>
+
+          <div>
+            <label for="fat">脂質 (g)</label>
+            <input type="number" id="fat" step="0.1" placeholder="例：45" />
+          </div>
+
+          <div>
+            <label for="carbs">炭水化物 (g)</label>
+            <input type="number" id="carbs" step="0.1" placeholder="例：180" />
+          </div>
+        </div>
+
+        <div class="form-grid two-column">
+          <div>
+            <label for="cardio">有酸素 (分)</label>
+            <input type="number" id="cardio" step="1" placeholder="例：20" />
+          </div>
+
+          <div>
+            <label for="workout">トレーニング内容</label>
+            <textarea id="workout" placeholder="例：サイドレイズ 10回×3セット、プルダウン 23kg 10回×3セット"></textarea>
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <div>
+            <label for="memo">メモ</label>
+            <textarea id="memo" placeholder="例：上半身が少し重い、でも有酸素は問題なし"></textarea>
+          </div>
+        </div>
+
+        <button type="submit" class="primary-btn">保存する</button>
+      </form>
+    </section>
+
+    <section class="card">
+      <div class="section-head">
+        <h2>記録一覧</h2>
+        <p>保存したログを新しい順に表示します。</p>
+      </div>
+      <div id="logList" class="log-list"></div>
     </section>
   </main>
 
